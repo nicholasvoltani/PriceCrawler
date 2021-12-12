@@ -11,7 +11,8 @@ It essentially does a GET request via `requests.get`, and parses the HTML via `b
 It does a GET request via `httpx.get` and parses the HTML via `selectolax.parser.HTMLParser`, then proceeds to find the correct `span` tag with the `price` (and the `author`, if it's searching for books).
 
 # Comparison
-```import timeit
+```
+import timeit
 
 # code snippet to be executed only once
 mysetup = '''
