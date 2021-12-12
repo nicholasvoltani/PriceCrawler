@@ -9,8 +9,8 @@ def main(URL):
     parser = HTMLParser(html.content)
 
     ## Price
-    price = float(unicodedata.normalize('NFKC', parser.css_first('span#price').text())\
-                    .split()[1].replace('.', '').replace(',', '.')))
+    price = unicodedata.normalize('NFKC', parser.css_first('span#price').text())
+    price = price.split()[1].replace('.', '').replace(',', '.')
 
     ## Output phrase
     phrase = f"O preço é de {price}"
