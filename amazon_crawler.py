@@ -13,24 +13,24 @@ def main(URL):
 
 
     ## Creating print-statement
-    price = soup.find(id = "price").string.split("\xa0")[1]
-    title = soup.find(id = "productTitle").string.replace('\n','')
+    price = soup.find(id="price").string.split("\xa0")[1]
+    title = soup.find(id="productTitle").string.replace('\n','')
 
     ## Fetching the (first) author
-    authors = soup.find('span', class_ = 'author notFaded')
+    authors = soup.find('span', class_='author notFaded')
     try:
         ## Has dropdown information on author 
-        author = authors.find('a', class_ = "a-link-normal contributorNameID").string
+        author = authors.find('a', class_="a-link-normal contributorNameID").string
     except:
         ## Fetch author as usual
-        author = authors.find('a', class_ = "a-link-normal").string
+        author = authors.find('a', class_="a-link-normal").string
 
     ## Output phrase
     phrase = f"\nO valor de {title}, de {author}, é de R${price}"
 
     ## Looking if price is a discount or not
     try: 
-        original_price = soup.find(id = "listPrice").string.split("\xa0")[1]
+        original_price = soup.find(id="listPrice").string.split("\xa0")[1]
         phrase += f"; originalmente estava a R$ {original_price}; descont de {price*100/original_price}%."
 
     except:
@@ -46,4 +46,4 @@ if __name__ == "__main__":
         sys.exit(0)
 
     URL = sys.argv[1]
-    main(URL = URL)
+    main(URL=URL)

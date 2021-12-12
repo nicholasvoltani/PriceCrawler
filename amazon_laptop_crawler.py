@@ -13,7 +13,7 @@ def main(URL):
 
 
     ## Creating print-statement
-    price = soup.find('span', class_ = "a-price").find('span').string
+    price = soup.find('span', class_="a-price").find('span').string
 
     ## Output phrase
     phrase = f"O preço é de {price}"
@@ -27,5 +27,5 @@ if __name__ == "__main__":
         sys.exit(0)
 
     URL = sys.argv[1]
-    main(URL = URL)
+    main(URL=URL)
     

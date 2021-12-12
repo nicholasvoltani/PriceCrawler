@@ -14,8 +14,8 @@ def main(URL):
 
 
     ## Creating print-statement
-    price = float(soup.find('span', id = "price").string.split()[1].replace(",", "."))
-    title = soup.find('span', id = "productTitle").string.strip('\n')
+    price = float(soup.find('span', id="price").string.split()[1].replace(",", "."))
+    title = soup.find('span', id="productTitle").string.strip('\n')
        
     ## Day of check-in
     today = datetime.today().strftime('%Y-%m-%d')
@@ -34,4 +34,4 @@ if __name__ == "__main__":
         sys.exit(0)
 
     URL = sys.argv[1]
-    main(URL = URL)
+    main(URL=URL)

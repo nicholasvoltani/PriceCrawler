@@ -13,13 +13,13 @@ def main(URL):
 
 
     ## Creating print-statement
-    price =float(soup.find('span', id = "price").string.split()[1].replace(",", "."))
-    title = soup.find('span', id = "productTitle").string.strip('\n')
+    price =float(soup.find('span', id="price").string.split()[1].replace(",", "."))
+    title = soup.find('span', id="productTitle").string.strip('\n')
 
     ## Fetching the (first) author
-    authors = soup.find('span', class_ = 'author notFaded')
+    authors = soup.find('span', class_='author notFaded')
     
-    ## Code idea from G. Solis: tries running first command; if False/None/''/etc, runs second one after `or`
+    ## Code idea from G. Solis: tries running first command; if False/None/''/etc, runs second line after `or`
     author = (authors.find('a', class_="a-link-normal contributorNameID") 
           or authors.find('a', class_="a-link-normal")).string  
 
@@ -44,4 +44,4 @@ if __name__ == "__main__":
         sys.exit(0)
 
     URL = sys.argv[1]
-    main(URL = URL)
+    main(URL=URL)

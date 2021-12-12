@@ -1,9 +1,7 @@
 import sys
-#from bs4 import BeautifulSoup
 from selectolax.parser import HTMLParser
-
-#from requests import get
 import httpx
+import unicodedata
 
 def main(URL):
     ## Accessing the URL
@@ -11,7 +9,8 @@ def main(URL):
     parser = HTMLParser(html.content)
 
     ## Price
-    price = float(parser.css_first('span.a-price').text().split('R$')[1].replace('.', '').replace(',', '.'))
+    price = float(unicodedata.normalize('NFKC', parser.css_first('span#price').text())\
+                    .split()[1].replace('.', '').replace(',', '.')))
 
     ## Output phrase
     phrase = f"O preço é de {price}"
@@ -25,5 +24,5 @@ if __name__ == "__main__":
         sys.exit(0)
 
     URL = sys.argv[1]
-    main(URL = URL)
+    main(URL=URL)
     
