@@ -6,23 +6,20 @@ import httpx
 
 def main(URL):
     ## Accessing the URL
-    HEADERS = ({'User-Agent':
-            'Mozilla/5.0 (X11; Linux x86_64)AppleWebKit/537.36 (KHTML, like Gecko)Chrome/44.0.2403.157 Safari/537.36','Accept-Language': 'en-US, en;q=0.5'})
-
-    webpage = get(URL, headers=HEADERS)
-    soup = BeautifulSoup(webpage.content, "lxml", from_encoding='utf8')
+    html = httpx.get(URL)
+    parser = HTMLParser(html.content)
 
 
     ## Creating print-statement
-    price =float(soup.find('span', id = "price").string.split()[1].replace(",", "."))
-    title = soup.find('span', id = "productTitle").string.strip('\n')
-
-    ## Fetching the (first) author
+    price = unicodedata.normalize('NFKC', parser.css_first('span#price').text())
+    price = price.split()[1].replace('.', '').replace(',', '.')
+    
+    title = parser.css_first('span#productTitle').text()
     authors = soup.find('span', class_ = 'author notFaded')
     
     ## Code idea from G. Solis: tries running first command; if False/None/''/etc, runs second one after `or`
     author = (authors.find('a', class_="a-link-normal contributorNameID") 
-          or authors.find('a', class_="a-link-normal")).string  
+            or authors.find('a', class_="a-link-normal")).string  
 
     ## Output phrase
     phrase = f"\nO valor de {title}, de {author}, é de R${price:.2f}"
