@@ -83,7 +83,8 @@ print ("The time of execution of the second program is :",
 ```
 
 The result, in my laptop, yields
-```The time of execution of the first program is : 0.0006772699998691678
+```
+The time of execution of the first program is : 0.0006772699998691678
 The time of execution of the second program is : 0.000630106995231472
 ```
 
