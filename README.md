@@ -11,7 +11,7 @@ It essentially does a GET request via `requests.get`, and parses the HTML via `b
 It does a GET request via `httpx.get` and parses the HTML via `selectolax.parser.HTMLParser`, then proceeds to find the correct `span` tag with the `price` (and the `author`, if it's searching for books).
 
 # Comparison
-`import timeit
+```import timeit
 
 # code snippet to be executed only once
 mysetup = '''
@@ -79,7 +79,7 @@ print ("The time of execution of the second program is :",
        timeit.timeit(setup = mysetup,
                     stmt = mycode,
                     number = 10000))
-`
+```
 
 The result, in my laptop, yields
 `The time of execution of the first program is : 0.0006772699998691678
