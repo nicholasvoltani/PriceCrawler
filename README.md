@@ -82,7 +82,7 @@ print ("The time of execution of the second program is :",
 ```
 
 The result, in my laptop, yields
-`The time of execution of the first program is : 0.0006772699998691678
-The time of execution of the second program is : 0.000630106995231472`
+```The time of execution of the first program is : 0.0006772699998691678
+The time of execution of the second program is : 0.000630106995231472```
 
 So, while I named the second method `quicker_...`, it doesn't really seem to be quicker ─ which is what I was told from Google...! Anyways...
